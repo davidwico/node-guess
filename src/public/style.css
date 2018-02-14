@@ -1,0 +1,25 @@
+body {
+    background-color: lightblue;
+}
+
+.wrapper {
+    width: 500px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.guess {
+    font-weight: bold;
+}
+
+.higher {
+    color: darkmagenta;
+}
+
+.lower {
+    color: darkolivegreen;
+}
+
+.winner {
+    color: darkred;
+}

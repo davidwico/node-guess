@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guess Number</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <h1>Guess Number</h1>
+        <p>Server will render random number between 1 and 10000.
+            Try to guess it.
+        </p>
+
+        <form action='/game' method="post">
+            <input type="number" name="userNumber" min="1" max="10000" autofocus>
+            <button type="submit">Submit</button>
+        </form>
+
+        <p class="guess">Your guess: <%= userNumber %></p>
+        
+        <% if (userNumber == secretNumber) { %>
+            <h4 class="winner">You win. The secret number is <%= secretNumber %></h4>
+            <% } else if (userNumber > secretNumber) { %>
+            <p class="higher">Your number is higher than secret number.</p>
+            <% } else if (userNumber < secretNumber && userNumber !== undefined) { %>
+            <p class="lower">Your number is lower than secret number.</p>
+        <% } %>
+
+        <p>History of your guesses:</p>
+        <p><%= historyString %></p>
+
+        <form action='/game' method="get">
+            <button type="submit">New game</button>
+        </form>
+    </div>
+
+</body>
+</html>
